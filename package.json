@@ -1,0 +1,41 @@
+{
+    "name": "book_store_epress",
+    "version": "1.0.0",
+    "description": "thi nguyen",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon src/index.js",
+        "watch": "node-sass -w src/resource/scss/app.scss src/public/css/app.css",
+        "prettier": "prettier --single-quote --trailing-comma all --tab-width 4 --write  \"./**/*.{js,json,scss,handlebars}\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thinguyen541/Book_Store_Expess.git"
+    },
+    "author": "thi nguyen",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/thinguyen541/Book_Store_Expess/issues"
+    },
+    "homepage": "https://github.com/thinguyen541/Book_Store_Expess#readme",
+    "dependencies": {
+        "bootstrap": "^5.2.2",
+        "express": "^4.18.2",
+        "express-handlebars": "^6.0.6",
+        "method-override": "^3.0.0",
+        "mongoose": "^6.6.5",
+        "mongoose-slug-generator": "^1.0.4",
+        "mongoose-slug-updater": "^3.3.0",
+        "morgan": "^1.10.0",
+        "node-sass": "^7.0.3",
+        "nodemon": "^2.0.20",
+        "prettier": "^2.7.1",
+        "script": "^0.1.4"
+    },
+    "devDependencies": {
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "pretier": "^0.0.1"
+    }
+}

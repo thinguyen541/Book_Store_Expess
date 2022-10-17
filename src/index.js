@@ -21,7 +21,7 @@ app.use(
 app.use(express.json());
 
 //static file
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 //HTTP logger
 app.use(morgan('combined'));

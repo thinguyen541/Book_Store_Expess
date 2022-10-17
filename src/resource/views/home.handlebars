@@ -43,6 +43,7 @@
 	
 </section>
 
+
 <section id="client-holder" data-aos="fade-up">
 	<div class="container">
 		<div class="row">
@@ -75,10 +76,10 @@
 
 			<div class="product-list" data-aos="fade-up">
 				<div class="row">
-
+					{{#each books}}
 					<div class="col-md-3">
 						<figure class="product-style">
-							<img src="https://demo.templatesjungle.com/booksaw/images/main-banner1.jpg" alt="Books" class="product-item">
+							<img src="{{this.img1}}" alt="Books" class="product-item">
 								<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
 							<figcaption>
 								<h3>Simple way of piece life</h3>
@@ -87,42 +88,7 @@
 							</figcaption>
 						</figure>
 					</div>
-				
-					<div class="col-md-3">
-						<figure class="product-style">
-							<img src="images/product-item2.jpg" alt="Books" class="product-item">
-								<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
-							<figcaption>
-								<h3>Great travel at desert</h3>
-								<p>Sanchit Howdy</p>
-								<div class="item-price">$ 38.00</div>
-							</figcaption>
-						</figure>
-					</div>
-
-					<div class="col-md-3">
-						<figure class="product-style">
-							<img src="images/product-item3.jpg" alt="Books" class="product-item">
-								<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
-							<figcaption>
-								<h3>The lady beauty Scarlett</h3>
-								<p>Arthur Doyle</p>
-								<div class="item-price">$ 45.00</div>
-							</figcaption>
-						</figure>
-					</div>
-									
-					<div class="col-md-3">
-						<figure class="product-style">
-							<img src="images/product-item4.jpg" alt="Books" class="product-item">
-								<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
-							<figcaption>
-								<h3>Once upon a time</h3>
-								<p>Klien Marry</p>
-								<div class="item-price">$ 35.00</div>
-							</figcaption>
-						</figure>
-					</div>
+					{{/each}}
 
 			    </div><!--ft-books-slider-->				
 			</div><!--grid-->
@@ -531,3 +497,13 @@
 		</div>
 	</div>
 </section>
+
+//cart modal
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+

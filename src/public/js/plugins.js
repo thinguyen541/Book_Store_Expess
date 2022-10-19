@@ -7535,14 +7535,11 @@ var _createClass = (function () {
                               u(this)[0].getBoundingClientRect().width),
                               (navWidth = Math.round(navWidth)),
                               u(this).hasClass('mega') &&
-                                  (u(this)
-                                      .find('ul')
-                                      .first()
-                                      .css({
-                                          left: 0,
-                                          right: 0,
-                                          margin: '0px auto',
-                                      }),
+                                  (u(this).find('ul').first().css({
+                                      left: 0,
+                                      right: 0,
+                                      margin: '0px auto',
+                                  }),
                                   (numCols = u(this).attr('data-columns')),
                                   2 == numCols
                                       ? u(this).find('li.has-sub').width('50%')

@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
-const handlebars = require('express-handlebars');
+const { create } = require('express-handlebars');
 const { dirname } = require('path');
 const app = express();
 const port = 3000;
@@ -29,10 +29,23 @@ app.use(morgan('combined'));
 //method override
 app.use(methodOverride('_method'));
 
+//handlebars helpper
+const handlebars = create({
+    // Specify helpers which are only registered on this instance.
+    helpers: {
+        time(n) {
+            var accum = '';
+            for (var i = 0; i < n; ++i) accum += i;
+            return accum;
+        },
+    },
+});
+
 //view engine (handlebars templete)
-app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
+app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, '/resource/views'));
+//loop
 
 //route
 route(app);

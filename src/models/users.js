@@ -6,10 +6,10 @@ const slug = require('mongoose-slug-generator');
 mongoose.plugin(slug);
 
 const Users = new Schema(
-    {   
-        username: { type: String, min: 8, uniqe:true},
-        email: { type: String, min: 8, uniqe:true},
-        password: {type: string, min:6},
+    {
+        username: { type: String, min: 8, uniqe: true },
+        email: { type: String, min: 8, uniqe: true },
+        password: { type: string, min: 6 },
         slug: { type: String, slug: 'username' },
     },
     { timestamps: true },

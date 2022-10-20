@@ -14,7 +14,7 @@
 							<h2 class="banner-title">Life of the Wild</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis urna, a eu.</p>
 							<div class="btn-wrap">
-								<a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i class="icon icon-ns-arrow-right"></i></a>
+								<a href="/books/life-of-the-wild" class="btn btn-outline-accent btn-accent-arrow">Read More<i class="icon icon-ns-arrow-right"></i></a>
 							</div>
 						</div><!--banner-content--> 
 						<img src="images/main-banner1.jpg" alt="banner" class="banner-image">
@@ -25,7 +25,7 @@
 							<h2 class="banner-title">Birds gonna be Happy</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis urna, a eu.</p>
 							<div class="btn-wrap">
-								<a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i class="icon icon-ns-arrow-right"></i></a>
+								<a href="/books/birds-gonna-be-happy" class="btn btn-outline-accent btn-accent-arrow">Read More<i class="icon icon-ns-arrow-right"></i></a>
 							</div>
 						</div><!--banner-content--> 
 						<img src="images/main-banner2.jpg" alt="banner" class="banner-image">
@@ -174,13 +174,13 @@
 			<div class="tab-content">
 			  <div id="all-genre" data-tab-content class="active">
 			  	<div class="row">
-					{{#each books}}
+					{{#each allGenBooks}}
 				  	<div class="col-md-3">
 					  	<figure class="product-style">
-							<img src="{{this.img1}}" alt="Books" class="product-item">
+							<a href="books/{{this.slug}}"> <img src="{{this.img1}}" alt="Books" class="product-item"></a>
 							<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
 							<figcaption>
-								<h3>{{this.name}}</h3>
+								<a href="books/{{this.slug}}" ><h3>{{this.title}}</h3> </a>
 								<p>{{this.author}}</p>
 								<div class="item-price">$ {{this.price}}</div>
 							</figcaption>
@@ -199,7 +199,7 @@
 							<img src="{{this.img1}}" alt="Books" class="product-item">
 							<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
 							<figcaption>
-								<h3>{{this.title}}</h3>
+								<h3>{{this.name}}</h3>
 								<p>{{this.author}}</p>
 								<div class="item-price">$ {{this.price}}</div>
 							</figcaption>

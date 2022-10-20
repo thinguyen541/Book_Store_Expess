@@ -9,7 +9,7 @@ const Users = new Schema(
     {
         username: { type: String, min: 8, uniqe: true },
         email: { type: String, min: 8, uniqe: true },
-        password: { type: string, min: 6 },
+        password: { type: String, min: 6 },
         slug: { type: String, slug: 'username' },
     },
     { timestamps: true },

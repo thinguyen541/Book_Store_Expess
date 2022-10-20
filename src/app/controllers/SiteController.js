@@ -7,8 +7,8 @@ class SiteController {
                 const bessinessBooks = books.filter(
                     (book) => (book.category == 'Bessiness'),
                 )
-                const frictionBooks = books.filter(
-                    (book) => (book.category == 'Friction'),
+                const fictionBooks = books.filter(
+                    (book) => (book.category == 'Fiction'),
                 );
                 const romanceBooks = books.filter(
                     (book) => (book.category == 'Romance'),
@@ -20,11 +20,12 @@ class SiteController {
                     (book) => (book.category == 'Advanture'),
                 );
                 const featuredBooks = books.slice(0, 4);
+                const allGenBooks = books.slice(0,8);
                 res.render('home', {
-                    books: multipleMongoose(books),
+                    allGenBooks: multipleMongoose(allGenBooks),
                     featuredBooks: multipleMongoose(featuredBooks),
                     bessinessBooks: multipleMongoose(bessinessBooks),
-                    frictionBooks: multipleMongoose( frictionBooks),
+                    fictionBooks: multipleMongoose(fictionBooks),
                     romanceBooks: multipleMongoose(romanceBooks),
                     technologyBooks: multipleMongoose(technologyBooks),
                     advantureBooks: multipleMongoose(advantureBooks),

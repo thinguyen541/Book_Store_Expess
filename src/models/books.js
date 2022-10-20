@@ -10,7 +10,7 @@ const Book = new Schema(
         title: { type: String, min: 1 },
         price: { type: Number },
         category: { type: String },
-        desciption: { type: String },
+        description: { type: String },
         author: { type: String },
         img1: { type: String },
         img2: { type: String },

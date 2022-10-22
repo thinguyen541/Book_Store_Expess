@@ -11,7 +11,7 @@ class UserController {
         if (token) {
             jwt.verify(token, process.env.JWT_SEC, function(err, user) {
                 req.user = user
-                res.redirect('/user/'+ user.id)
+                next()
                 if(err) 
                     res.redirect('/auth/login')
             })
@@ -21,6 +21,7 @@ class UserController {
             res.redirect('/auth/login')
         }
     }
+
     verifyTokenandAuthorization  = (req, res, next)=>{
         this.verifyToken(req, res, ()=>{
             if (req.user.id == req.param.id || req.user.isAdmin){

@@ -1,7 +1,24 @@
 const Books = require('../../models/books');
 const { multipleMongoose } = require('../../utils/mongooseToObject');
+const dotenv = require('dotenv')
+dotenv.config
+
+
 class SiteController {
     index(req, res, next) {
+        //
+        if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+        jsonwebtoken.verify(req.headers.authorization.split(' ')[1], process.env.JWT_SEC , function(err, decode) {
+            if (err) req.user = undefined;
+            req.user = decode;
+            const accountButton = document.getElementById('accountButton')
+            accountButton.href = './user/' + decode.id
+        });
+        } else {
+        req.user = undefined;
+         }
+      
+
         const books = Books.find({})
             .then((books) => {
                 const bessinessBooks = books.filter(
@@ -29,6 +46,7 @@ class SiteController {
                     romanceBooks: multipleMongoose(romanceBooks),
                     technologyBooks: multipleMongoose(technologyBooks),
                     advantureBooks: multipleMongoose(advantureBooks),
+                    user: req.user,
                 });
             })
             .catch(next);

@@ -1,5 +1,10 @@
 const account = require('../../models/user');
 const { Mongoose, multipleMongoose } = require('../../utils/mongooseToObject');
+const Cryptojs = require('crypto-js');
+const user = require('../../models/user');
+const dotenv = require('dotenv')
+const JWT = require('jsonwebtoken')
+dotenv.config()
 
 class AuthController {
    register(req, res, next) {
@@ -10,12 +15,58 @@ class AuthController {
         res.render('auth/login');
     }
 
-    apiRegister(req, res, next) {
+    async apiRegister(req, res, next) {
+        const newUserAccount = new account({
+            username: req.body.username,
+            email: req.body.email,
+            password: Cryptojs.AES.encrypt(req.body.password, process.env.PASS_SEC).toString(),
+        })
+        try {
+            const newUser = await newUserAccount.save()
+            res.json(newUser)
+        } catch (error){
+            console.json(error)
+        }
+    }
+
+    async apiLogin(req, res, next) {
+        try {
+            const user = await account.findOne({email: req.body.email})
+            user || res.send("wrong email")
+
+            const hassPassword = Cryptojs.AES.decrypt(user.password,process.env.PASS_SEC)
+            const originalPassword = hassPassword.toString(Cryptojs.enc.Utf8)
+
+            originalPassword != req.body.password && res.send("wrong password")
+            
+            const accessToken = JWT.sign({
+                id:user.id,
+                isAdmin: user.isAdmin,
+            }, process.env.JWT_SEC,
+            {expiresIn:"7d"}
+            )
+            
+
+            const {password,...others} = user._doc
+            res.cookie('token', accessToken,{
+                httpOnly: true
+            })
+            res.redirect('/')
+        } catch (error) {
+            
+        }
         
     }
 
-    apiLogin(req, res, next) {
-        
+    async logout(req, res, next){
+        const token = req.cookies.token
+        if (token) {
+            res.clearCookie('token')
+            res.redirect('/auth/login')
+        }
+        else{
+           res.redirect('/')
+        }
     }
 }
 

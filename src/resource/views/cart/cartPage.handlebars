@@ -19,14 +19,14 @@
                                 <th scope='row'>
                                     <div class='d-flex align-items-center'>
                                         <img
-                                            src='{{this.[0].img1}}'
+                                            src='{{this.img1}}'
                                             class='img-fluid rounded-3'
                                             style='width: 120px;'
                                             alt='Book'
                                         />
                                         <div class='flex-column ms-4'>
-                                            <p class='mb-2'>{{this.[0].title}}</p>
-                                            <p class='mb-0'>{{this.[0].author}}</p>
+                                            <p class='mb-2'>{{this.title}}</p>
+                                            <p class='mb-0'>{{this.author}}</p>
                                         </div>
                                     </div>
                                 </th>
@@ -34,7 +34,7 @@
                                     <p
                                         class='mb-0'
                                         style='font-weight: 500;'
-                                    >{{this.[0].category}}</p>
+                                    >{{this.category}}</p>
                                 </td>
                                 <td class='align-middle'>
                                     <div class='d-flex flex-row'>
@@ -49,7 +49,7 @@
                                             id='form1'
                                             min='0'
                                             name='quantity'
-                                            value='2'
+                                            value='1'
                                             type='number'
                                             class='form-control form-control-sm'
                                             style='width: 50px;'
@@ -67,7 +67,7 @@
                                     <p
                                         class='mb-0'
                                         style='font-weight: 500;'
-                                    >{{this.[0].title}}</p>
+                                    >{{this.price}}</p>
                                 </td>
                             </tr>
                             {{/each}}
@@ -233,7 +233,7 @@
                                     style='font-weight: 500;'
                                 >
                                     <p class='mb-2'>Subtotal</p>
-                                    <p class='mb-2'>$23.49</p>
+                                    <p class='mb-2'>{{total_cost}}</p>
                                 </div>
 
                                 <div

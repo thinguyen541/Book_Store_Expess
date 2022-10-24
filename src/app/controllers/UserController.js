@@ -73,7 +73,7 @@ class UserController {
     }
 
     showProfile(req, res, next){
-        User.findOne({ id: req.params.id })
+        User.findById(req.params.id)
         .then((user)=>
         {res.render('user/profile',
             {user:Mongoose(user)

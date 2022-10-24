@@ -1,7 +1,7 @@
 <section class='bg-sand padding-large'>
     <div class='container'>
         <div class='row'>
-
+            <form method="POST" action="/cart/{{book._id}}?_method=PUT">
             <div class='col-md-6'>
                 <a href='#' class='product-image'><img
                         src='{{book.img1}}'
@@ -24,9 +24,9 @@
                         value='27545'
                         class='button'
                     >Add to cart</button>
-
                 </div>
             </div>
+            </form>
 
         </div>
     </div>

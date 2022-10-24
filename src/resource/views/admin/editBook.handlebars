@@ -1,0 +1,62 @@
+<div class='container'>
+    <h2>Update a Book</h2>
+    <form method='POST' action='/admin/updated/{{book._id}}?_method=PUT'>
+        <div class='mt-4'>
+            <div class='mb-3'>
+                <label class='form-label'>Title</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='title'
+                    value='{{book.title}}'
+                />
+            </div>
+            <div class='mb-3'>
+                <label for='formGroupExampleInput2' class='form-label'>Author</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='author'
+                    value='{{book.author}}'
+                />
+            </div>
+            <div class='mb-3'>
+                <label for='formGroupExampleInput2' class='form-label'>Description</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='description'
+                    value='{{book.description}}'
+                />
+            </div>
+            <div class='mb-3'>
+                <label for='formGroupExampleInput2' class='form-label'>Image link 1</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='img1'
+                    value='{{book.img1}}'
+                />
+            </div>
+            <div class='mb-3'>
+                <label for='formGroupExampleInput2' class='form-label'>Image link 2</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='img2'
+                    value='{{book.img2}}'
+                />
+            </div>
+            <div class='mb-3'>
+                <label for='formGroupExampleInput2' class='form-label'>Image link 3</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='img3'
+                    value='{{book.img3}}'
+                />
+            </div>
+            <button type='submit'> Update </button>
+        </div>
+    </form>
+</div>

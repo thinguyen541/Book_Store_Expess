@@ -11,7 +11,7 @@ const Cart = new Schema(
         books: [
             {
                 bookid: { type: String, require: true },
-                quatity: { type: Number, require: true, default: 1 },
+                quantity: { type: Number, require: true, default: 1 },
             },
         ],
     },

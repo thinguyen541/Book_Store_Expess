@@ -2,6 +2,7 @@ const account = require('../../models/user');
 const { Mongoose, multipleMongoose } = require('../../utils/mongooseToObject');
 const Cryptojs = require('crypto-js');
 const user = require('../../models/user');
+const Cart = require('../../models/cart');
 const dotenv = require('dotenv')
 const JWT = require('jsonwebtoken')
 dotenv.config()
@@ -19,6 +20,7 @@ class AuthController {
         const newUserAccount = new account({
             username: req.body.username,
             email: req.body.email,
+            isAdmin: false,
             password: Cryptojs.AES.encrypt(req.body.password, process.env.PASS_SEC).toString(),
         })
         try {
@@ -46,6 +48,16 @@ class AuthController {
             {expiresIn:"7d"}
             )
             
+            //create cart
+            Cart.findOne({userid: user.id}).then(cart=>{
+            if (cart === null){
+                const newCart = new Cart({
+                userid: user.id,
+                books: []
+            })
+            newCart.save()
+            }
+            })
 
             const {password,...others} = user._doc
             res.cookie('token', accessToken,{

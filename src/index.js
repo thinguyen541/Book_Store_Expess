@@ -3,16 +3,15 @@ const path = require('path');
 const morgan = require('morgan');
 const { create } = require('express-handlebars');
 const { dirname } = require('path');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 const route = require('./routes/index');
 const connect = require('./config/db/Book_stores_db');
 const methodOverride = require('method-override');
 const dotenv = require('dotenv');
-const cp = require('cookie-parser')
-dotenv.config
+const cp = require('cookie-parser');
+dotenv.config;
 const app = express();
 const port = 3000;
-
 
 //connect to db
 connect();
@@ -46,8 +45,6 @@ const handlebars = create({
         },
     },
 });
-
-
 
 //view engine (handlebars templete)
 app.engine('handlebars', handlebars.engine);

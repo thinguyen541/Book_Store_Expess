@@ -15,61 +15,65 @@
                         </thead>
                         <tbody>
                             {{#each books}}
-                            <tr>
-                                <th scope='row'>
-                                    <div class='d-flex align-items-center'>
-                                        <img
-                                            src='{{this.img1}}'
-                                            class='img-fluid rounded-3'
-                                            style='width: 120px;'
-                                            alt='Book'
-                                        />
-                                        <div class='flex-column ms-4'>
-                                            <p class='mb-2'>{{this.title}}</p>
-                                            <p class='mb-0'>{{this.author}}</p>
+                                <tr>
+                                    <th scope='row'>
+                                        <div class='d-flex align-items-center'>
+                                            <img
+                                                src='{{this.img1}}'
+                                                class='img-fluid rounded-3'
+                                                style='width: 120px;'
+                                                alt='Book'
+                                            />
+                                            <div class='flex-column ms-4'>
+                                                <p
+                                                    class='mb-2'
+                                                >{{this.title}}</p>
+                                                <p
+                                                    class='mb-0'
+                                                >{{this.author}}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </th>
-                                <td class='align-middle'>
-                                    <p
-                                        class='mb-0'
-                                        style='font-weight: 500;'
-                                    >{{this.category}}</p>
-                                </td>
-                                <td class='align-middle'>
-                                    <div class='d-flex flex-row'>
-                                        <button
-                                            class='btn btn-link px-2'
-                                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                        >
-                                            <i class='fas fa-minus'></i>
-                                        </button>
+                                    </th>
+                                    <td class='align-middle'>
+                                        <p
+                                            class='mb-0'
+                                            style='font-weight: 500;'
+                                        >{{this.category}}</p>
+                                    </td>
+                                    <td class='align-middle'>
+                                        <div class='d-flex flex-row'>
+                                            <button
+                                                class='btn btn-link px-2'
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                            >
+                                                <i class='fas fa-minus'></i>
+                                            </button>
 
-                                        <input
-                                            id='form1'
-                                            min='0'
-                                            name='quantity'
-                                            value='1'
-                                            type='number'
-                                            class='form-control form-control-sm'
-                                            style='width: 50px;'
-                                        />
+                                            <input
+                                                id='form1'
+                                                min='0'
+                                                name='quantity'
+                                                value='1'
+                                                type='number'
+                                                class='form-control form-control-sm'
+                                                style='width: 50px;'
+                                            />
 
-                                        <button
-                                            class='btn btn-link px-2'
-                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                        >
-                                            <i class='fas fa-plus'></i>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td class='align-middle'>
-                                    <p
-                                        class='mb-0'
-                                        style='font-weight: 500;'
-                                    >{{this.price}}</p>
-                                </td>
-                            </tr>
+                                            <button
+                                                class='btn btn-link px-2'
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                            >
+                                                <i class='fas fa-plus'></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td class='align-middle'>
+                                        <p
+                                            class='mb-0'
+                                            style='font-weight: 500;'
+                                        >{{this.price}}</p>
+                                    </td>
+                                </tr>
                             {{/each}}
                         </tbody>
                     </table>

@@ -1,4 +1,4 @@
-const { multipleMongoose,Mongoose } = require('../../utils/mongooseToObject');
+const { multipleMongoose, Mongoose } = require('../../utils/mongooseToObject');
 const Books = require('../../models/books');
 
 class BooksController {
@@ -14,21 +14,21 @@ class BooksController {
         const books = Books.find({})
             .then((books) => {
                 const bessinessBooks = books.filter(
-                    (book) => (book.category == 'Bessiness'),
-                )
+                    (book) => book.category == 'Bessiness',
+                );
                 const fictionBooks = books.filter(
-                    (book) => (book.category == 'Fiction'),
+                    (book) => book.category == 'Fiction',
                 );
                 const romanceBooks = books.filter(
-                    (book) => (book.category == 'Romance'),
+                    (book) => book.category == 'Romance',
                 );
                 const technologyBooks = books.filter(
-                    (book) => (book.category == 'Technology'),
+                    (book) => book.category == 'Technology',
                 );
                 const advantureBooks = books.filter(
-                    (book) => (book.category == 'Advanture'),
+                    (book) => book.category == 'Advanture',
                 );
-                const allGenBooks = books.slice(0,19);
+                const allGenBooks = books.slice(0, 19);
                 res.render('books/listBooksPage', {
                     allGenBooks: multipleMongoose(allGenBooks),
                     bessinessBooks: multipleMongoose(bessinessBooks),

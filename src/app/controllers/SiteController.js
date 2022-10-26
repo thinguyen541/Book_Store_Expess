@@ -1,30 +1,29 @@
 const Books = require('../../models/books');
 const { multipleMongoose } = require('../../utils/mongooseToObject');
-const dotenv = require('dotenv')
-dotenv.config
-
+const dotenv = require('dotenv');
+dotenv.config;
 
 class SiteController {
-    index(req, res, next){
+    index(req, res, next) {
         const books = Books.find({})
             .then((books) => {
                 const bessinessBooks = books.filter(
-                    (book) => (book.category == 'Bessiness'),
-                )
+                    (book) => book.category == 'Bessiness',
+                );
                 const fictionBooks = books.filter(
-                    (book) => (book.category == 'Fiction'),
+                    (book) => book.category == 'Fiction',
                 );
                 const romanceBooks = books.filter(
-                    (book) => (book.category == 'Romance'),
+                    (book) => book.category == 'Romance',
                 );
                 const technologyBooks = books.filter(
-                    (book) => (book.category == 'Technology'),
+                    (book) => book.category == 'Technology',
                 );
                 const advantureBooks = books.filter(
-                    (book) => (book.category == 'Advanture'),
+                    (book) => book.category == 'Advanture',
                 );
                 const featuredBooks = books.slice(0, 4);
-                const allGenBooks = books.slice(0,8);
+                const allGenBooks = books.slice(0, 8);
                 res.render('home', {
                     allGenBooks: multipleMongoose(allGenBooks),
                     featuredBooks: multipleMongoose(featuredBooks),

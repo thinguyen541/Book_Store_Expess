@@ -13,3 +13,7 @@ JWT_SEC = lama</br>
 3, run:</br>
 npm start</br>
 </h2>
+
+<h1>Admin account: </h1>
+<h2>{ email: thinguyen@gamil.com</h2>
+<h2> password: 123456 }</h2>

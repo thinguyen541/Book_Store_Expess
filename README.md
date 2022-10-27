@@ -1,7 +1,8 @@
 # Book_Store_Expess
 <h1 style="color: red">Thi nguyen</h1>
 <h2>
-1, Install thư viện</br>
+1, Clone và Install thư viện:</br>
+</br>
 npm i</br>
 </br>
 2, Tạo file .env và paste nội dung sau:</br>

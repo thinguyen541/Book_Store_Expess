@@ -217,11 +217,14 @@
 </form>
 
 <script>
-    const addToCartForm = document.getElementById('add-to-cart-form') const
-    listButton = document.getElementsByClassName('add-to-cart') for(let i=0;
-    i<listButton.length;i++){
-    listButton.item(i).addEventListener('click',function(){ var id=''
-    if(this.getAttribute('data-product-tile')) id =
-    this.getAttribute('data-product-tile') console.log(id) addToCartForm.action
-    = '/cart/'+id+'?_method=PUT' addToCartForm.submit() }); }
+    const addToCartForm = document.getElementById('add-to-cart-form') 
+    const listButton = document.getElementsByClassName('add-to-cart') 
+    for(let i=0;i<listButton.length;i++){
+    listButton.item(i).addEventListener('click',function(){
+    var id=''
+    if(this.getAttribute('data-product-tile')) 
+        id = this.getAttribute('data-product-tile') console.log(id) 
+    addToCartForm.action = '/cart/'+id+'?_method=PUT'
+    addToCartForm.submit() })
+    }
 </script>
